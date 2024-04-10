@@ -291,6 +291,7 @@ services:
     image: golift/notifiarr
     container_name: notifiarr
     restart: unless-stopped
+    hostname: notifiarr
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
