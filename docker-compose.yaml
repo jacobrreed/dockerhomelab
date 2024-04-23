@@ -308,16 +308,16 @@ services:
   pmm:
     depends_on:
       - plex
-    image: lscr.io/linuxserver/plex-meta-manager:latest
+    image: kometateam/kometa
     container_name: pmm
     restart: unless-stopped
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
-      - PMM_CONFIG=/config/config.yml
-      - PMM_TIME=03:00
-      - PMM_RUN=False
+      - KOMETA_CONFIG=/config/config.yml
+      - KOMETA_TIME=03:00
+      - KOMETA_RUN=True
     volumes:
       - /docker-configs/plex-meta-manager:/config
   qbittorrent:
