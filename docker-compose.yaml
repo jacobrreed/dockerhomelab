@@ -305,21 +305,20 @@ services:
       - "traefik.http.routers.notifiarr.entrypoints=websecure"
       - "traefik.http.routers.notifiarr.tls.certresolver=letsencrypt"
       - "traefik.http.services.notifiarr.loadbalancer.server.port=5454"
-  pmm:
+  kometa:
     depends_on:
       - plex
-    image: kometateam/kometa
-    container_name: pmm
+    image: kometateam/kometa:nightly
+    container_name: kometa
     restart: unless-stopped
     environment:
       - TZ=${TZ}
       - PGID=${PGID}
       - PUID=${PUID}
       - KOMETA_CONFIG=/config/config.yml
-      - KOMETA_TIME=03:00
       - KOMETA_RUN=True
     volumes:
-      - /docker-configs/plex-meta-manager:/config
+      - /docker-configs/kometa:/config
   qbittorrent:
     image: lscr.io/linuxserver/qbittorrent:latest
     container_name: qbittorrent
@@ -378,4 +377,4 @@ services:
     restart: "unless-stopped"
     volumes:
       - "/docker-configs/ppm:/config"
-      - "/docker-configs/plex-meta-manager/assets:/assets"
+      - "/docker-configs/kometa/assets:/assets"
