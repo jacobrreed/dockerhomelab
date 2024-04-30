@@ -316,6 +316,12 @@ services:
       - PUID=${PUID}
       - KOMETA_CONFIG=/config/config.yml
       - KOMETA_TIMES=08:00,17:00
+      - KOMETA_plextoken=${PLEX_TOKEN}
+      - KOMETA_traktclientid=${TRAKT_CLIENT_ID}
+      - KOMETA_traktclientsecret=${TRAKT_CLIENT_SECRET}
+      - KOMETA_tmdbapikey=${TMDB_API_KEY}
+      - KOMETA_mdbapikey=${MDB_API_KEY}
+      - KOMETA_RUN=false
     volumes:
       - /docker-configs/kometa:/config
   qbittorrent:
