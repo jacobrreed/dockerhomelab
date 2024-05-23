@@ -368,6 +368,7 @@ services:
       - TS_AUTH_ONCE=True
       - TS_AUTH_KEY=${TAILSCALE_AUTH_KEY}
       - TS_STATE_DIR=/var/lib/tailscale
+      - TS_ROUTES=192.168.86.0/24
     volumes:
       - /docker-configs/tailscale:/var/lib/tailscale
   posterizarr:
