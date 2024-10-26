@@ -358,19 +358,19 @@ services:
       - /docker-configs/plex-image-cleaup:/config
       - /docker-configs/plex:/plex
     restart: unless-stopped
-  tailscale:
-    image: ghcr.io/tailscale/tailscale:latest
-    container_name: tailscale
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-      - TS_AUTH_ONCE=True
-      - TS_AUTH_KEY=${TAILSCALE_AUTH_KEY}
-      - TS_STATE_DIR=/var/lib/tailscale
-      - TS_ROUTES=192.168.86.0/24
-    volumes:
-      - /docker-configs/tailscale:/var/lib/tailscale
+      #  tailscale:
+      #image: ghcr.io/tailscale/tailscale:latest
+      #container_name: tailscale
+      # environment:
+      #- PUID=${PUID}
+      #- PGID=${PGID}
+      #- TZ=${TZ}
+      #- TS_AUTH_ONCE=True
+      #- TS_AUTH_KEY=${TAILSCALE_AUTH_KEY}
+      #- TS_STATE_DIR=/var/lib/tailscale
+      #- TS_ROUTES=192.168.86.0/24
+      #volumes:
+      #- /docker-configs/tailscale:/var/lib/tailscale
   posterizarr:
     hostname: "posterizarr"
     container_name: "posterizarr"
